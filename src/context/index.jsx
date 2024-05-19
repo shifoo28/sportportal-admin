@@ -1,27 +1,35 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {
+  FIXED_NAVBAR,
+  OPEN_CONFIGURATOR,
+  OPEN_SIDENAV,
+  SIDENAV_COLOR,
+  SIDENAV_TYPE,
+  TRANSPARENT_NAVBAR,
+} from "@/types/mt-actions";
 
 export const MaterialTailwind = React.createContext(null);
 MaterialTailwind.displayName = "MaterialTailwindContext";
 
 export function reducer(state, action) {
   switch (action.type) {
-    case "OPEN_SIDENAV": {
+    case OPEN_SIDENAV: {
       return { ...state, openSidenav: action.value };
     }
-    case "SIDENAV_TYPE": {
+    case SIDENAV_TYPE: {
       return { ...state, sidenavType: action.value };
     }
-    case "SIDENAV_COLOR": {
+    case SIDENAV_COLOR: {
       return { ...state, sidenavColor: action.value };
     }
-    case "TRANSPARENT_NAVBAR": {
+    case TRANSPARENT_NAVBAR: {
       return { ...state, transparentNavbar: action.value };
     }
-    case "FIXED_NAVBAR": {
+    case FIXED_NAVBAR: {
       return { ...state, fixedNavbar: action.value };
     }
-    case "OPEN_CONFIGURATOR": {
+    case OPEN_CONFIGURATOR: {
       return { ...state, openConfigurator: action.value };
     }
     default: {
@@ -33,10 +41,10 @@ export function reducer(state, action) {
 export function MaterialTailwindControllerProvider({ children }) {
   const initialState = {
     openSidenav: false,
-    sidenavColor: "dark",
+    sidenavColor: "orange",
     sidenavType: "white",
     transparentNavbar: true,
-    fixedNavbar: false,
+    fixedNavbar: true,
     openConfigurator: false,
   };
 
@@ -72,14 +80,14 @@ MaterialTailwindControllerProvider.propTypes = {
 };
 
 export const setOpenSidenav = (dispatch, value) =>
-  dispatch({ type: "OPEN_SIDENAV", value });
+  dispatch({ type: OPEN_SIDENAV, value });
 export const setSidenavType = (dispatch, value) =>
-  dispatch({ type: "SIDENAV_TYPE", value });
+  dispatch({ type: SIDENAV_TYPE, value });
 export const setSidenavColor = (dispatch, value) =>
-  dispatch({ type: "SIDENAV_COLOR", value });
+  dispatch({ type: SIDENAV_COLOR, value });
 export const setTransparentNavbar = (dispatch, value) =>
-  dispatch({ type: "TRANSPARENT_NAVBAR", value });
+  dispatch({ type: TRANSPARENT_NAVBAR, value });
 export const setFixedNavbar = (dispatch, value) =>
-  dispatch({ type: "FIXED_NAVBAR", value });
+  dispatch({ type: FIXED_NAVBAR, value });
 export const setOpenConfigurator = (dispatch, value) =>
-  dispatch({ type: "OPEN_CONFIGURATOR", value });
+  dispatch({ type: OPEN_CONFIGURATOR, value });

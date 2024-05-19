@@ -4,10 +4,22 @@ import {
   TableCellsIcon,
   InformationCircleIcon,
   ServerStackIcon,
-  RectangleStackIcon,
+  NewspaperIcon,
+  VideoCameraIcon,
 } from "@heroicons/react/24/solid";
 import { Home, Profile, Tables, Notifications } from "@/pages/dashboard";
-import { SignIn, SignUp } from "@/pages/auth";
+import News from "./pages/news";
+import Videos from "./pages/news/Videos";
+import {
+  HOME,
+  NEWS,
+  NOTIFICATIONS,
+  PROFILE,
+  SIGNIN,
+  TABLES,
+  VIDEOS,
+} from "./types/paths";
+import { SignIn } from "./pages/auth";
 
 const icon = {
   className: "w-5 h-5 text-inherit",
@@ -20,44 +32,62 @@ export const routes = [
       {
         icon: <HomeIcon {...icon} />,
         name: "dashboard",
-        path: "/home",
+        path: HOME,
         element: <Home />,
       },
       {
         icon: <UserCircleIcon {...icon} />,
         name: "profile",
-        path: "/profile",
+        path: PROFILE,
         element: <Profile />,
       },
       {
         icon: <TableCellsIcon {...icon} />,
         name: "tables",
-        path: "/tables",
+        path: TABLES,
         element: <Tables />,
       },
       {
         icon: <InformationCircleIcon {...icon} />,
         name: "notifications",
-        path: "/notifications",
+        path: NOTIFICATIONS,
         element: <Notifications />,
       },
     ],
   },
+  // {
+  //   title: "auth pages",
+  //   layout: "auth",
+  //   pages: [
+  //     {
+  //       icon: <ServerStackIcon {...icon} />,
+  //       name: "sign in",
+  //       path: SIGNIN,
+  //       element: <SignIn />,
+  //     },
+  //     // {
+  //     //   icon: <RectangleStackIcon {...icon} />,
+  //     //   name: "sign up",
+  //     //   path: SIGNIN,
+  //     //   element: <SignUp />,
+  //     // },
+  //   ],
+  // },
   {
-    title: "auth pages",
-    layout: "auth",
+    title: "News pages",
+    layout: "news",
     pages: [
       {
-        icon: <ServerStackIcon {...icon} />,
-        name: "sign in",
-        path: "/sign-in",
-        element: <SignIn />,
+        icon: <NewspaperIcon {...icon} />,
+        name: "Local & Global",
+        path: NEWS,
+        element: <News />,
       },
       {
-        icon: <RectangleStackIcon {...icon} />,
-        name: "sign up",
-        path: "/sign-up",
-        element: <SignUp />,
+        icon: <VideoCameraIcon {...icon} />,
+        name: "Videos",
+        path: VIDEOS,
+        element: <Videos />,
       },
     ],
   },

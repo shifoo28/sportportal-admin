@@ -1,14 +1,16 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { Dashboard, Auth } from "@/layouts";
+import { Dashboard, Auth, News } from "@/layouts";
+import { AUTH, DASHBOARD, HOME, NEWS } from "./types/paths";
 
-function App() {
+const App = () => {
   return (
     <Routes>
-      <Route path="/dashboard/*" element={<Dashboard />} />
-      <Route path="/auth/*" element={<Auth />} />
-      <Route path="*" element={<Navigate to="/dashboard/home" replace />} />
+      <Route path={DASHBOARD + "/*"} element={<Dashboard />} />
+      <Route path={AUTH + "/*"} element={<Auth />} />
+      <Route path={NEWS + "/*"} element={<News />} />
+      <Route path="*" element={<Navigate to={DASHBOARD + HOME} replace />} />
     </Routes>
   );
-}
+};
 
 export default App;
